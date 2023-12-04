@@ -1,29 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <meta name="Generator" content="EditPlus®">
-  <meta name="Author" content="">
-  <meta name="Keywords" content="">
-  <meta name="Description" content="">
-  <title>Document</title>
-  <script language="JavaScript">
-    Barco = new Array(); // Declaramos un array
-    Barco[1] = "";
-    Barco[2] = "";
-    Barco[3] = "";
-    Barco[4] = "";
-
-  </script>
- </head>
- <body>
-
-    <img id="character" src="./Imagenes/R6E_RENDER_OPERATOR_DOC.png" width="200" style="position:absolute; top:0; left:0; transition: 0.5s;">
-    <script src="movement.js"></script>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Hundir la Flota</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1>Hundir la Flota - Jugador 1</h1>
+    <div class="tablero" id="tablero-jugador-1"></div>
+    
+    <h1>Hundir la Flota - Jugador 2</h1>
+    <div class="tablero" id="tablero-jugador-2"></div>
+  
+  <script src="script.js"></script>
 </body>
 </html>
-<!-- style="position:absolute; -> defino la posicion del personaje en la pantalla (absoluta)  
-    top:0; -> Posicion del personaje en la pantalla (arriba) 
-    left:0; -> Posicion del personaje en la pantalla (izquierda) 
-    transition: 0.5s;" -> Velocidad de movimiento del personaje  
- -->
