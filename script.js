@@ -1,6 +1,6 @@
 const filas = 10; // Filas del tablero 
 const columnas = 10; // Columnas del tablero
-const barcos = 5; // Barcos del tablero
+const barcos = 10; // Barcos del tablero
 let turnoJugador = 1; // Turno del jugador
 const tableroJugador1Array = Array.from({ length: filas }, () => Array(columnas).fill(0)); // Tablero del jugador 1
 const tableroJugador2Array = Array.from({ length: filas }, () => Array(columnas).fill(0)); // Tablero del jugador 2
