@@ -1,17 +1,20 @@
 /* Estilos generales */
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
+  background-image: url(fondo-azul-submarino-mar-oceano-luz-volumen-representacion-3d_92790-509.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Arial, sans-serif; /* Fuente del texto */
+  text-align: center; /* Centra el contenido de la página */
 }
 
 h1 {
-  margin-top: 20px;
+  margin-top: 20px; /* Margen superior */
 }
 
 /* Estilos para los tableros */
 .tablero {
-  display: inline-block;
-  margin: 20px;
+  display: inline-block; /* Hace que los tableros se muestren en línea */
+  margin: 20px; /* Margen entre tableros */
   width: 330px; /* Ancho ajustado para contener el tablero y las coordenadas */
   height: 330px; /* Altura ajustada para contener el tablero y las coordenadas */
   border: 1px solid #000;
@@ -20,33 +23,33 @@ h1 {
 
 /* Estilos para las casillas */
 .casilla {
-  width: calc(100% / 10);
-  height: calc(100% / 10);
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  float: left;
-  cursor: pointer;
-  position: relative;
+  width: calc(100% / 10);   /* Ancho de las casillas */
+  height: calc(100% / 10); /* Altura de las casillas */
+  border: 2px solid #ffffff; /* Borde de las casillas */
+  box-sizing: border-box;   /* Hace que el borde no afecte al tamaño de la casilla */
+  float: left;  /* Coloca las casillas en una misma línea */
+  cursor: pointer; /* Cambia el cursor al pasar por encima de una casilla */
+  position: relative; /* Posiciona las coordenadas dentro de la casilla */
 }
 
 
 .casilla::before {
-  content: attr(data-coordenadas);
-  position: absolute;
+  content: attr(data-coordenadas); /* Muestra las coordenadas en el atributo data-coordenadas */
+  position: absolute; /* Posiciona el contenido de las coordenadas dentro de la casilla */
   top: 50%; /* Coloca las coordenadas en la mitad vertical de la casilla */
   left: 50%; /* Coloca las coordenadas en la mitad horizontal de la casilla */
   transform: translate(-50%, -50%); /* Centra las coordenadas tanto vertical como horizontalmente */
-  font-size: 12px;
-  color: #999;
+  font-size: 12px; /* Tamaño de las coordenadas */
+  color: #26ff00; /* Color de las coordenadas */
 }
 
 /* Estilos para el encabezado de las coordenadas */
 .tablero::after {
-  content: "Coordenadas";
-  display: block;
-  position: absolute;
+  content: "Coordenadas"; /* Texto del encabezado */
+  display: block; /* Hace que el encabezado se muestre en bloque */
+  position: absolute; /* Posiciona el encabezado dentro del tablero */
   top: -20px; /* Mueve hacia abajo el encabezado de las coordenadas */
-  left: 50%;
-  transform: translateX(-50%);
-  font-weight: bold;
+  left: 50%; /* Coloca el encabezado en la mitad horizontal del tablero */
+  transform: translateX(-50%); /* Centra el encabezado horizontalmente */
+  font-weight: bold; /* Pone en negrita el texto del encabezado */
 }
