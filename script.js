@@ -141,7 +141,10 @@ function turnoDelJugador(fila, columna, tableroArray, tableroContrincante) // Fu
     tableroArray[fila][columna] = 2; // Marcar como tocado 
 
     if (esBarcoHundido(fila, columna, tableroArray)) {
-      mensajeAlerta = `¡Tocado y hundido en (${fila},${columna})!`; // Mensaje de tocado y hundido 
+      mensajeAlerta = `¡Tocado y hundido en (${fila},${columna})!`; // Mensaje de tocado y hundido
+      var AudioHundido = document.getElementById("audioHundido"); // Aquí se asocia el audio de hundido a la variable AudioHundido
+      AudioHundido.play(); // Aquí se llama al audio de hundido para que suene cuando se hunda un barco
+      
 
       // Verificar si todos los barcos han sido hundidos
       if (todosBarcosHundidos(tableroArray)) {
@@ -153,11 +156,15 @@ function turnoDelJugador(fila, columna, tableroArray, tableroContrincante) // Fu
     } else {
       mensajeAlerta = `¡Tocado en (${fila},${columna})!`; // esta lo que hace es que cuando se toca un barco, se muestra el mensaje de tocado en la casilla que se toco 
       cambioDeTurno = false; // Aquí se corrigió para asegurar el cambio de turno cuando se acierta 
+      var AudioTocado = document.getElementById("audioTocado"); // Aquí se asocia el audio de tocado a la variable AudioTocado
+      AudioTocado.play(); // Aquí se llama al audio de tocado para que suene cuando se toque un barco
     }
   } else {
     mensajeAlerta = `¡Agua en (${fila},${columna})!`; // Aquí se corrigió para asegurar el cambio de turno cuando no se acierta 
     cambioDeTurno = true; // Aquí se corrigió para asegurar el cambio de turno cuando no se acierta
     turnoJugador = turnoJugador === 1 ? 2 : 1; // Aquí se corrigió para asegurar el cambio de turno cuando no se acierta 
+    var AudioAgua = document.getElementById("audioAgua"); // Aquí se asocia el audio de agua a la variable AudioAgua
+    AudioAgua.play(); // Aquí se llama al audio de agua para que suene cuando se falle
   }
 
   actualizarEstiloCasilla(fila, columna, tableroContrincante, tableroArray[fila][columna]); // Actualizar estilo de la casilla del tablero del jugador actual
