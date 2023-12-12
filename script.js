@@ -1,6 +1,6 @@
 const filas = 10; // Filas del tablero 
 const columnas = 10; // Columnas del tablero
-const barcos = 10; // Barcos del tablero
+
 let turnoJugador = 1; // Turno del jugador
 const tableroJugador1Array = Array.from({ length: filas }, () => Array(columnas).fill(0)); // Tablero del jugador 1
 const tableroJugador2Array = Array.from({ length: filas }, () => Array(columnas).fill(0)); // Tablero del jugador 2
@@ -34,7 +34,7 @@ function disparar(event) // Funcion para disparar
   }
 }
 
-function crearTablero(tablero, esJugador1)  // Funcion para crear el tablero 
+function crearTablero(tablero)  // Funcion para crear el tablero 
 {
   const letras = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']; // Creo una lista de letras para las filas del tablero 
 
@@ -50,7 +50,7 @@ function crearTablero(tablero, esJugador1)  // Funcion para crear el tablero
 
       casilla.addEventListener('click', disparar); // Agregar evento de disparo a la casilla del tablero para que cuando se haga clic en una casilla se dispare la función disparar 
 
-      tablero.appendChild(casilla); // Agregar la casilla al tablero mediante appendChild la cual es una función para agregar un nodo (un nodo es un elemento del DOM) al final de la lista de hijos de un nodo padre especificado
+      tablero.appendChild(casilla); // Agregar la casilla al tablero mediante appendChild 
     }
   }
 }
@@ -84,7 +84,7 @@ function puedeColocarBarco(tableroArray, fila, columna, direccion, tamano)
  {
   if (direccion === 'horizontal') // dirección horizontal 
   {
-    if (columna + tamano > columnas) // (columna + tamano > columnas) comprueba si el barco se sale del tablero en horizontal 
+    if (columna + tamano > columnas ) // (columna + tamano > columnas) comprueba si el barco se sale del tablero en horizontal 
     {
       return false; // Si la casilla ya está ocupada, no se puede colocar el barco
     }
@@ -97,7 +97,7 @@ function puedeColocarBarco(tableroArray, fila, columna, direccion, tamano)
       }
     }
   } else { // dirección vertical
-    if (fila + tamano > filas)  // (fila + tamano > filas)  comprueba si el barco se sale del tablero en vertical 
+    if (fila + tamano > filas )  // (fila + tamano > filas)  comprueba si el barco se sale del tablero en vertical 
     {
       return false; // Si la casilla ya está ocupada, no se puede colocar el barco
     }
@@ -162,7 +162,7 @@ function turnoDelJugador(fila, columna, tableroArray, tableroContrincante) // Fu
   } else {
     mensajeAlerta = `¡Agua en (${fila},${columna})!`; // Aquí se corrigió para asegurar el cambio de turno cuando no se acierta 
     cambioDeTurno = true; // Aquí se corrigió para asegurar el cambio de turno cuando no se acierta
-    turnoJugador = turnoJugador === 1 ? 2 : 1; // Aquí se corrigió para asegurar el cambio de turno cuando no se acierta 
+    turnoJugador = turnoJugador === 1 ? 2 : 1; // Aquí se corrigió para asegurar el cambio de turno cuando no se acierta  turnoJugador === 1 ? 2 : 1; es un operador ternario que es una forma abreviada de escribir un if-else por lo que si el turno del jugador es 1, el turno del jugador es 2 y si el turno del jugador es 2, el turno del jugador es 1
     var AudioAgua = document.getElementById("audioAgua"); // Aquí se asocia el audio de agua a la variable AudioAgua
     AudioAgua.play(); // Aquí se llama al audio de agua para que suene cuando se falle
   }
@@ -221,7 +221,8 @@ function esBarcoHundido(fila, columna, tableroArray) // Funcion para verificar s
         if (tableroArray[newX][newY] === 1) // Si la casilla es un barco, el barco no está hundido 
         {
           return false;
-        } else if (tableroArray[newX][newY] === 2) // Si la casilla es un barco tocado, agregar a la cola de visitados 
+        } 
+        else if (tableroArray[newX][newY] === 2) // Si la casilla es un barco tocado, agregar a la cola de visitados 
         {
           queue.push({ x: newX, y: newY }); // Agregar a la cola de visitados 
         }
@@ -234,7 +235,7 @@ function esBarcoHundido(fila, columna, tableroArray) // Funcion para verificar s
 
 function todosBarcosHundidos(tablero) // Funcion para verificar si todos los barcos han sido hundidos 
 {
-  return tablero.flat().every(casilla => casilla !== 1); // Verificar si todos los barcos han sido hundidos en el tablero actual
+  return tablero.flat().every(casilla => casilla !== 1); // Verificar si todos los barcos han sido hundidos en el tablero actual casilla => casilla !== 1 es una función flecha que verifica si la casilla es diferente de 1 
 }
 
 function actualizarEstiloCasilla(fila, columna, tablero, estado) 
