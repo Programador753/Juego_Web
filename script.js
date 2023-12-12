@@ -97,7 +97,7 @@ function puedeColocarBarco(tableroArray, fila, columna, direccion, tamano)
       {
         return false; // Si la casilla ya está ocupada, no se puede colocar el barco
       }
-      if (fila !=0 && tableroArray[fila-1][i] === 1) // tableroArray[fila][i] === 1 comprueba si el barco se sale del tablero en horizontal 
+      if (fila > 0 && tableroArray[fila-1][i] === 1) // tableroArray[fila][i] === 1 comprueba si el barco se sale del tablero en horizontal 
       {
         return false; // Si la casilla ya está ocupada, no se puede colocar el barco
       }
@@ -124,7 +124,7 @@ function puedeColocarBarco(tableroArray, fila, columna, direccion, tamano)
       {
         return false; // Si la casilla ya está ocupada, no se puede colocar el barco
       }
-      if (columna !=0 && tableroArray[i][columna-1] === 1) // tableroArray[fila][i] === 1 comprueba si el barco se sale del tablero en horizontal ==
+      if (columna > 0 && tableroArray[i][columna-1] === 1) // tableroArray[fila][i] === 1 comprueba si el barco se sale del tablero en horizontal ==
       {
         return false; // Si la casilla ya está ocupada, no se puede colocar el barco
       }
