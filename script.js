@@ -82,51 +82,52 @@ function colocarBarcosEnTablero(tableroArray) // Funcion para colocar los barcos
 function puedeColocarBarco(tableroArray, fila, columna, direccion, tamano)
  // Funcion para verificar si se puede colocar el barco en el tablero
  {
-  if (direccion === 'horizontal') // dirección horizontal 
+  if (direccion === 'horizontal') // dirección horizontal
   {
-    if (columna + tamano > columnas ) // (columna + tamano > columnas) comprueba si el barco se sale del tablero en horizontal 
+    if (columna + tamano > columnas ) // Si la columna más el tamaño del barco es mayor que el número de columnas, no se puede colocar el barco
     {
-      return false; // Si la casilla ya está ocupada, no se puede colocar el barco
+      return false;
     }
-
-    for (let i = columna; i < columna + tamano; i++) // (let i = columna; i < columna + tamano; i++) comprueba si el barco se sale del tablero en horizontal
-     {
+  
+    for (let i = columna; i < columna + tamano; i++) // Recorrer las casillas del barco en horizontal para verificar si se puede colocar el barco
+    {
       datos.value=datos.value+" horizontal "+ fila + " " + i + "/";
-
-      if (tableroArray[fila][i] === 1) // tableroArray[fila][i] === 1 comprueba si el barco se sale del tablero en horizontal 
+  
+      // Comprueba las celdas vecinas en todas las direcciones
+      for (let dx = -1; dx <= 1; dx++) //  for (let dx = -1; dx <= 1; dx++) es un ciclo for que recorre las celdas vecinas en todas las direcciones dx es la coordenada x y dy es la coordenada y
       {
-        return false; // Si la casilla ya está ocupada, no se puede colocar el barco
-      }
-      if (fila > 0 && tableroArray[fila-1][i] === 1) // fila > 0 && tableroArray[fila-1][i] === 1 permite que el barco se coloque en la fila 0 
-      {
-        return false; // Si la casilla ya está ocupada, no se puede colocar el barco
-      }
-      if (fila < 9 && tableroArray[fila+1][i] === 1) // fila < 9 && tableroArray[fila+1][i] === 1 permite que el barco se coloque en la fila 9  
-      {
-        return false; // Si la casilla ya está ocupada, no se puede colocar el barco
+        for (let dy = -1; dy <= 1; dy++) // for (let dy = -1; dy <= 1; dy++) es un ciclo for que recorre las celdas vecinas en todas las direcciones dx es la coordenada x y dy es la coordenada y
+        {
+          if (fila + dx >= 0 && fila + dx < filas && i + dy >= 0 && i + dy < columnas && tableroArray[fila + dx][i + dy] === 1) 
+          // Esta linea lo que hace es que si la fila más la coordenada x es mayor o igual a 0 y la fila más la coordenada x es menor que el número de filas y la columna más la coordenada y es mayor o igual a 0 y la columna más la coordenada y es menor que el número de columnas y la casilla es un barco, no se puede colocar el barco
+          {
+            return false;
+          }
+        }
       }
     }
-  } else { // dirección vertical
-    
-    if (fila + tamano > filas )  // (fila + tamano > filas)  comprueba si el barco se sale del tablero en vertical 
+  } 
+  else // dirección vertical
+  { 
+    if (fila + tamano > filas ) // Si la fila más el tamaño del barco es mayor que el número de filas, no se puede colocar el barco
     {
-      return false; // Si la casilla ya está ocupada, no se puede colocar el barco
+      return false; 
     }
-
-    for (let i = fila; i < fila + tamano; i++) // (let i = fila; i < fila + tamano; i++) comprueba si el barco se sale del tablero en vertical 
+    for (let i = fila; i < fila + tamano; i++) // Recorrer las casillas del barco en vertical para verificar si se puede colocar el barco
     {
       datos.value=datos.value+" vertical "+ i + " " + columna + "/";
-      if (tableroArray[i][columna] === 1) // Si la casilla ya está ocupada, no se puede colocar el barco 
-       {
-        return false; // Si la casilla ya está ocupada, no se puede colocar el barco
-      }
-       if (columna < 9 && tableroArray[i][columna+1] === 1) // tableroArray[fila][i] === 1 comprueba si el barco se sale del tablero en horizontal 
+  
+      // Comprueba las celdas vecinas en todas las direcciones
+      for (let dx = -1; dx <= 1; dx++) //  for (let dx = -1; dx <= 1; dx++) es un ciclo for que recorre las celdas vecinas en todas las direcciones dx es la coordenada x y dy es la coordenada y 
       {
-        return false; // Si la casilla ya está ocupada, no se puede colocar el barco
-      }
-      if (columna > 0 && tableroArray[i][columna-1] === 1) // tableroArray[fila][i] === 1 comprueba si el barco se sale del tablero en horizontal ==
-      {
-        return false; // Si la casilla ya está ocupada, no se puede colocar el barco
+        for (let dy = -1; dy <= 1; dy++) // for (let dy = -1; dy <= 1; dy++) es un ciclo for que recorre las celdas vecinas en todas las direcciones dx es la coordenada x y dy es la coordenada y
+        {
+          if (i + dx >= 0 && i + dx < filas && columna + dy >= 0 && columna + dy < columnas && tableroArray[i + dx][columna + dy] === 1) 
+          // Esta linea lo que hace es que si la fila más la coordenada x es mayor o igual a 0 y la fila más la coordenada x es menor que el número de filas y la columna más la coordenada y es mayor o igual a 0 y la columna más la coordenada y es menor que el número de columnas y la casilla es un barco, no se puede colocar el barco
+          {
+            return false;
+          }
+        }
       }
     }
   }
