@@ -97,14 +97,14 @@ function puedeColocarBarco(tableroArray, fila, columna, direccion, tamano)
       {
         return false; // Si la casilla ya está ocupada, no se puede colocar el barco
       }
-      if (fila > 0 && tableroArray[fila-1][i] === 1) // tableroArray[fila][i] === 1 comprueba si el barco se sale del tablero en horizontal 
+      if (fila > 0 && tableroArray[fila-1][i] === 1) // fila > 0 && tableroArray[fila-1][i] === 1 permite que el barco se coloque en la fila 0 
       {
         return false; // Si la casilla ya está ocupada, no se puede colocar el barco
       }
-      if (fila < 9 && tableroArray[fila+1][i] === 1) // tableroArray[fila][i] === 1 comprueba si el barco se sale del tablero en horizontal 
+      if (fila < 9 && tableroArray[fila+1][i] === 1) // fila < 9 && tableroArray[fila+1][i] === 1 permite que el barco se coloque en la fila 9  
       {
         return false; // Si la casilla ya está ocupada, no se puede colocar el barco
-      } 
+      }
     }
   } else { // dirección vertical
     
@@ -131,7 +131,7 @@ function puedeColocarBarco(tableroArray, fila, columna, direccion, tamano)
     }
   }
   return true; // Si no se cumple ninguna de las condiciones anteriores, se puede colocar el barco
-}
+} 
 
 function colocarBarco(tableroArray, fila, columna, direccion, tamano) // Funcion para colocar el barco segun la dirección y el tamaño del barco  
 {
