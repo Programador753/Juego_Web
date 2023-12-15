@@ -9,6 +9,10 @@ body {
 
 .contenedor-tableros {
   display: flex; /* Hace que los tableros se muestren en línea */
+  justify-content: center; /* Centra los tableros horizontalmente */
+  width: auto; /* Ancho ajustado al contenido */
+
+
 
 }
 
