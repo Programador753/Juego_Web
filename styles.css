@@ -5,14 +5,12 @@ body {
   background-size: cover;
   font-family: Arial, sans-serif; /* Fuente del texto */
   text-align: center; /* Centra el contenido de la página */
+  height: auto;
 }
 
 .contenedor-tableros {
-  display: flex; /* Hace que los tableros se muestren en línea */
+  display: inline-block; /* Hace que los tableros se muestren en línea */
   justify-content: center; /* Centra los tableros horizontalmente */
-  width: auto; /* Ancho ajustado al contenido */
-
-
 
 }
 
