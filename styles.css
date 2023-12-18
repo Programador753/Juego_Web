@@ -5,22 +5,25 @@ body {
   background-size: cover;
   font-family: Arial, sans-serif; /* Fuente del texto */
   text-align: center; /* Centra el contenido de la página */
-  height: auto;
+  flex-wrap: wrap;
 }
 
 .contenedor-tableros {
-  display: inline-block; /* Hace que los tableros se muestren en línea */
+  display:flex;
+  flex-direction: row; /* Hace que los tableros se muestren en línea */
   justify-content: center; /* Centra los tableros horizontalmente */
+  flex-wrap: wrap; /* Hace que los tableros se muestren en línea */
 
 }
 
+
 h1 {
   margin-top: 20px; /* Margen superior */
+  display: flex; /* Hace que el encabezado se muestre en bloque */
 }
 
 /* Estilos para los tableros */
 .tablero {
-  display: inline-block; /* Hace que los tableros se muestren en línea */
   margin: 20px; /* Margen entre tableros */
   width: 330px; /* Ancho ajustado para contener el tablero y las coordenadas */
   height: 330px; /* Altura ajustada para contener el tablero y las coordenadas */
@@ -52,7 +55,6 @@ h1 {
 
 /* Estilos para el encabezado de las coordenadas */
 .tablero::after {
-  content: "Coordenadas"; /* Texto del encabezado */
   display: block; /* Hace que el encabezado se muestre en bloque */
   position: absolute; /* Posiciona el encabezado dentro del tablero */
   top: -20px; /* Mueve hacia abajo el encabezado de las coordenadas */

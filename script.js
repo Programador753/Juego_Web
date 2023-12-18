@@ -1,6 +1,6 @@
 const filas = 10; // Filas del tablero 
 const columnas = 10; // Columnas del tablero
-
+datos=""; // Variable para guardar los datos de los barcos
 let turnoJugador = 1; // Turno del jugador
 const tableroJugador1Array = Array.from({ length: filas }, () => Array(columnas).fill(0)); // Tablero del jugador 1
 const tableroJugador2Array = Array.from({ length: filas }, () => Array(columnas).fill(0)); // Tablero del jugador 2
@@ -57,7 +57,7 @@ function crearTablero(tablero)  // Funcion para crear el tablero
 
 function colocarBarcosEnTablero(tableroArray) // Funcion para colocar los barcos en el tablero 
 {
-  const tamaniosBarcos = [2, 3, 3, 4, 5, 6, 1, 1, 1]; // Lista de tamaños de barcos disponibles 
+  const tamaniosBarcos = [2, 3, 4, 5, 6, 1, 1]; // Lista de tamaños de barcos disponibles 
 
   for (let i = 0; i < tamaniosBarcos.length; i++) // Recorrer los tamaños de barcos disponibles para colocarlos en el tablero según la dirección y el tamaño del barco 
   {
