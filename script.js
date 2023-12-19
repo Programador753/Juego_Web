@@ -92,7 +92,7 @@ function crearTablero(tablero)  // Funcion para crear el tablero
 
 function colocarBarcosEnTablero(tableroArray) // Funcion para colocar los barcos en el tablero 
 {
-  const tamaniosBarcos = [1, 1]; // Lista de tamaños de barcos disponibles [2, 3, 4, 5, 6, 1, 1]
+  const tamaniosBarcos = [2, 3, 4, 5, 6, 1, 1]; // Lista de tamaños de barcos disponibles [2, 3, 4, 5, 6, 1, 1]
 
   for (let i = 0; i < tamaniosBarcos.length; i++) // Recorrer los tamaños de barcos disponibles para colocarlos en el tablero según la dirección y el tamaño del barco 
   {
