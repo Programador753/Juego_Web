@@ -18,14 +18,17 @@
   <div class="tablero" id="tablero-jugador-1"></div>
 </div>
 <div>
-<button name="btnRevelar" id="btnRevelar">Revelar Tableros</button>
+<button name="btnRevelar" id="btnRevelar">Revelar Tableros</button> <!-- Boton para revelar los tableros -->
+<button id="reset-button" name="reset-button">Reiniciar Contadores</button> <!-- Boton para reiniciar los contadores -->
+<button id="reload-button" name="reload-button">Nueva Partida</button> <!-- Boton para recargar la pagina -->
 <br>
 <div>
 <strong><p style="display: column ; font-size: 18px; color: white; " align="justify" >
   Esto son las normas de juego del Hundir la Flota:
   <br><br>
   0. Cada jugador tiene un tablero de 10x10 casillas, con una distribucionde barcos diferente cuyo tamaño es:
-  <br>2 barcos de 1, 1 barco de 2, 1 barco de 3, 1 barco de 4, 1 barco de 5 y 1 barco de 6.
+  <br>
+  2 barcos de 1, 1 barco de 2, 1 barco de 3, 1 barco de 4, 1 barco de 5 y 1 barco de 6.
   <br><br>
   1. Cada jugador tiene 7 barcos de diferentes tamaños.
   <br><br>
@@ -44,7 +47,9 @@
   8. Si un jugador falla pasa el turno al otro jugador y si intenta disparar le saldra un mensaje de no es tu turno.
 </p></strong>
 </div>
-
+<div style="display: column ; color: #ff0000 ; ">
+<h2 id="victorias-jugador-1">Victorias Jugador 1: 0</h2> 
+<h2 id="victorias-jugador-2">Victorias Jugador 2: 0</h2> 
 </div>
 <script src="script.js"></script>
 </body>
