@@ -8,6 +8,41 @@ const tableroJugador2Array = Array.from({ length: filas }, () => Array(columnas)
 const tableroJugador1 = document.getElementById('tablero-jugador-1'); // Tablero del jugador 1
 const tableroJugador2 = document.getElementById('tablero-jugador-2'); // Tablero del jugador 2
 
+let victoriasJugador1 = localStorage.getItem('victoriasJugador1') || 0; // Aquí se obtienen las victorias del jugador 1 del local storage o se inicializa en 0 si no hay nada en el local storage
+let victoriasJugador2 = localStorage.getItem('victoriasJugador2') || 0; // Aquí se obtienen las victorias del jugador 2 del local storage o se inicializa en 0 si no hay nada en el local storage
+
+document.getElementById('victorias-jugador-2').textContent = "Victorias Jugador 2: " + victoriasJugador2; // Aquí se actualiza el contador de victorias del jugador 2 para que se muestre en el tablero
+document.getElementById('victorias-jugador-1').textContent = "Victorias Jugador 1: " + victoriasJugador1; // Aquí se actualiza el contador de victorias del jugador 1 para que se muestre en el tablero
+document.getElementById('reset-button').addEventListener('click', resetVictoryCounters); // Funcion para reiniciar los contadores de victorias
+document.getElementById('reload-button').addEventListener('click', function() {location.reload();}); // Funcion para reiniciar el juego 
+
+
+function resetVictoryCounters() // Funcion para reiniciar los contadores de victorias
+{
+  victoriasJugador1 = 0; // Aquí se reinicia el contador de victorias del jugador 1
+  victoriasJugador2 = 0; // Aquí se reinicia el contador de victorias del jugador 2
+  localStorage.setItem('victoriasJugador1', victoriasJugador1); // Aquí se guarda en el local storage las victorias del jugador 1
+  localStorage.setItem('victoriasJugador2', victoriasJugador2); // Aquí se guarda en el local storage las victorias del jugador 2
+  document.getElementById('victorias-jugador-1').textContent = "Victorias Jugador 1: " + victoriasJugador1; // Aquí se actualiza el contador de victorias del jugador 1
+  document.getElementById('victorias-jugador-2').textContent = "Victorias Jugador 2: " + victoriasJugador2; // Aquí se actualiza el contador de victorias del jugador 2
+}
+
+
+function jugadorGana(jugador) // Funcion para añadir una victoria al jugador que gana
+{
+  if (jugador === 1) // Si el jugador es el jugador 1
+  {
+    victoriasJugador1++; // Aquí se actualiza el contador de victorias del jugador 1
+    document.getElementById('victorias-jugador-1').textContent = "Victorias Jugador 1: " + victoriasJugador1; // Aquí se actualiza el contador de victorias del jugador 1
+    localStorage.setItem('victoriasJugador1', victoriasJugador1); // Aquí se guarda en el local storage las victorias del jugador 1
+  } else if (jugador === 2) // else if es para declarar una condición que se cumple si la condición anterior no se cumple (jugador === 2) es el jugador 2
+  {
+    victoriasJugador2++; // Aquí se actualiza el contador de victorias del jugador 2
+    document.getElementById('victorias-jugador-2').textContent = "Victorias Jugador 2: " + victoriasJugador2; // Aquí se actualiza el contador de victorias del jugador 2
+    localStorage.setItem('victoriasJugador2', victoriasJugador2); // Aquí se guarda en el local storage las victorias del jugador 2
+  }
+}
+
 
 function disparar(event) // Funcion para disparar 
 {
@@ -57,7 +92,7 @@ function crearTablero(tablero)  // Funcion para crear el tablero
 
 function colocarBarcosEnTablero(tableroArray) // Funcion para colocar los barcos en el tablero 
 {
-  const tamaniosBarcos = [2, 3, 4, 5, 6, 1, 1]; // Lista de tamaños de barcos disponibles 
+  const tamaniosBarcos = [1, 1]; // Lista de tamaños de barcos disponibles [2, 3, 4, 5, 6, 1, 1]
 
   for (let i = 0; i < tamaniosBarcos.length; i++) // Recorrer los tamaños de barcos disponibles para colocarlos en el tablero según la dirección y el tamaño del barco 
   {
@@ -170,6 +205,7 @@ function turnoDelJugador(fila, columna, tableroArray, tableroContrincante) // Fu
       // Verificar si todos los barcos han sido hundidos
       if (todosBarcosHundidos(tableroArray)) {
         mensajeAlerta = `¡Jugador ${turnoJugador} ha ganado!`; // Mostrar mensaje de alerta
+        jugadorGana(turnoJugador); // Funcion para añaadir una victoria al jugador que gana
         window.alert(mensajeAlerta); // Mostrar mensaje de alerta 
         return; // Terminar el juego 
       }
