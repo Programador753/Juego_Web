@@ -205,6 +205,7 @@ function turnoDelJugador(fila, columna, tableroArray, tableroContrincante) // Fu
       // Verificar si todos los barcos han sido hundidos
       if (todosBarcosHundidos(tableroArray)) {
         mensajeAlerta = `¡Jugador ${turnoJugador} ha ganado!`; // Mostrar mensaje de alerta
+        actualizarEstiloCasilla(fila, columna, tableroContrincante, tableroArray[fila][columna]); // Actualizar estilo de la casilla del tablero del jugador actual
         jugadorGana(turnoJugador); // Funcion para añaadir una victoria al jugador que gana
         window.alert(mensajeAlerta); // Mostrar mensaje de alerta 
         return; // Terminar el juego 
