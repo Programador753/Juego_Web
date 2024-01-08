@@ -318,14 +318,14 @@ function actualizarEstiloCasilla(fila, columna, tablero, estado)
 // LLamamos al boton mediante su id para que revele el tablero al pulsarlo 
 document.getElementById('btnRevelar').addEventListener('click', function() 
 {
-  revelarTableros(tableroJugador1Array, tableroJugador1);
+  revelarTableros(tableroJugador1Array, tableroJugador1); 
   revelarTableros(tableroJugador2Array, tableroJugador2);  
 }
 ); 
 
-function revelarTableros(tableroArray, tableroElement) 
+function revelarTableros(tableroArray, tableroElement) //
 {
-  for (let i = 0; i < filas; i++)  
+  for (let i = 0; i < filas; i++) 
   {
     for (let j = 0; j < columnas; j++) 
     {
