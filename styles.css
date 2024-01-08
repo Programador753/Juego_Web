@@ -1,22 +1,22 @@
 /* Estilos generales */
 body {
-  background-image: url(fondo-azul-submarino-mar-oceano-luz-volumen-representacion-3d_92790-509.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image: url(fondo-azul-submarino-mar-oceano-luz-volumen-representacion-3d_92790-509.jpg); /* Imagen de fondo */
+  background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+  background-size: cover; /* Ajusta la imagen de fondo al tamaño de la ventana */
   font-family: Arial, sans-serif; /* Fuente del texto */
   text-align: center; /* Centra el contenido de la página */
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Hace que los tableros se muestren en línea */
 }
-
+/* Estilos para el contenedor de los tableros */
 .contenedor-tableros {
-  display:flex;
+  display:flex; /* Hace que los tableros se muestren en línea */
   flex-direction: row; /* Hace que los tableros se muestren en línea */
   justify-content: center; /* Centra los tableros horizontalmente */
   flex-wrap: wrap; /* Hace que los tableros se muestren en línea */
 
 }
 
-
+/* Estilos para el encabezado */
 h1 {
   margin-top: 20px; /* Margen superior */
   display: flex; /* Hace que el encabezado se muestre en bloque */
@@ -27,8 +27,8 @@ h1 {
   margin: 20px; /* Margen entre tableros */
   width: 330px; /* Ancho ajustado para contener el tablero y las coordenadas */
   height: 330px; /* Altura ajustada para contener el tablero y las coordenadas */
-  border: 1px solid #000;
-  position: relative;
+  border: 1px solid #000; /* Borde del tablero */
+  position: relative; /* Posiciona las coordenadas dentro del tablero */
 }
 
 /* Estilos para las casillas */
@@ -42,7 +42,7 @@ h1 {
   position: relative; /* Posiciona las coordenadas dentro de la casilla */
 }
 
-
+/* Estilos para las casillas de los barcos */
 .casilla::before {
   content: attr(data-coordenadas); /* Muestra las coordenadas en el atributo data-coordenadas */
   position: absolute; /* Posiciona el contenido de las coordenadas dentro de la casilla */
